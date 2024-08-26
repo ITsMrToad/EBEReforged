@@ -1,6 +1,3 @@
-# Source code
-Source will be available on **Beta** mod stage
-
 ## Enlightened(Fork) info
 
 Original mod [EBE](https://modrinth.com/mod/ebe) by FoundationGames([Github](https://github.com/FoundationGames/EnhancedBlockEntities))
@@ -12,6 +9,10 @@ If have problem with this mod report to **THIS** [Github-issues](https://github.
 This is **alpha** version, may not be stable
 
 For in game config intall embeddium 0.3+
+
+Other my mods:
+- H+(Hardcore improve)
+- Palladium(Optimizing)
 
 Original mod description ⭣
 
