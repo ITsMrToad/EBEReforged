@@ -1,0 +1,34 @@
+{
+  "required": true,
+  "package": "foundationgames.enhancedblockentities.core.mixin",
+  "refmap": "ebe.refmap.json",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "BellBlockEntityMixin",
+    "BlockStateBaseMixin",
+    "DecoratedPotBlockEntityMixin",
+    "EnderChestBlockEntityMixin",
+    "MultiPackResourceManagerMixin",
+    "ShulkerBoxBlockEntityMixin",
+    "embeddium.EmbeddiumVideoOptionsScreenMixin",
+    "embeddium.RenderSectionManagerMixin",
+    "embeddium.RenderSectionMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "BlockEntityRenderDispatcherMixin",
+    "BlockEntityWithoutLevelRendererMixin",
+    "LevelRendererMixin",
+    "MinecraftMixin",
+    "RenderChunkMixin",
+    "SignEditScreenMixin",
+    "accessor.SignRendererInvoker",
+    "ffapi.BakedModelMixin",
+    "ffapi.ModelBakeryMixin",
+    "ffapi.ModelManagerMixin",
+    "ffapi.MultiPartBakedModelMixin",
+    "ffapi.WeightedBakedModelMixin"
+  ]
+}
