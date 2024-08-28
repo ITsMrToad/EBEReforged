@@ -4,27 +4,30 @@
   "refmap": "ebe.refmap.json",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
     "BellBlockEntityMixin",
     "BlockStateBaseMixin",
     "DecoratedPotBlockEntityMixin",
     "EnderChestBlockEntityMixin",
     "MultiPackResourceManagerMixin",
     "ShulkerBoxBlockEntityMixin",
-    "embeddium.EmbeddiumVideoOptionsScreenMixin",
-    "embeddium.RenderSectionManagerMixin",
-    "embeddium.RenderSectionMixin"
-  ],
-  "injectors": {
-    "defaultRequire": 1
-  },
-  "client": [
     "BlockEntityRenderDispatcherMixin",
     "BlockEntityWithoutLevelRendererMixin",
     "LevelRendererMixin",
     "MinecraftMixin",
     "RenderChunkMixin",
     "SignEditScreenMixin",
+   
+    "embeddium.EmbeddiumVideoOptionsScreenMixin",
+    "embeddium.RenderSectionManagerMixin",
+    "embeddium.RenderSectionMixin",
+ 
     "accessor.SignRendererInvoker",
+    
     "ffapi.BakedModelMixin",
     "ffapi.ModelBakeryMixin",
     "ffapi.ModelManagerMixin",
