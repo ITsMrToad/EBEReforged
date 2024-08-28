@@ -10,6 +10,9 @@ group = mod_group_id
 base {
     archivesName = mod_id
 }
+mixin {
+    add sourceSets.main, "ebe.refmap.json"
+}
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
