@@ -6,7 +6,6 @@ Fork by Mr.Toad
 <br/>
 If have problem with this mod report to **THIS** [Github-issues](https://github.com/ITsMrToad/EBEReforged/issues)
 <br/>
-This is **alpha** version, may not be stable
 
 For in game config intall embeddium 0.3+
 
