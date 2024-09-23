@@ -3,6 +3,7 @@ package foundationgames.enhancedblockentities.core;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.mojang.datafixers.util.Pair;
+import com.mr_toad.lib.api.integration.Integration;
 import foundationgames.enhancedblockentities.client.model.ModelIdentifiers;
 import foundationgames.enhancedblockentities.client.renderer.BlockEntityRendererCondition;
 import foundationgames.enhancedblockentities.client.renderer.BlockEntityRendererOverride;
@@ -14,7 +15,7 @@ import foundationgames.enhancedblockentities.common.util.ffapi.loader.plugin.Mod
 import foundationgames.enhancedblockentities.core.config.EBEConfig;
 import foundationgames.enhancedblockentities.core.config.EBEConfigEnumValue;
 import foundationgames.enhancedblockentities.core.loader.CommonSetup;
-import foundationgames.enhancedblockentities.integration.EmbeddiumIntegration;
+import foundationgames.enhancedblockentities.integration.SinytraIntegration;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -47,29 +48,25 @@ public class EBE {
     public static final String MODID = "ebe";
     public static final Logger LOGGER = LoggerFactory.getLogger("EBE");
     public static final Marker FFAPI = MarkerFactory.getMarker("FFAPI");
-
+   
+    public static final Integration EMBEDDIUM = () -> "embeddium";
     public static final TemplateLoader TEMPLATE_LOADER = new TemplateLoader();
 
     @Nullable public static EBEConfig CONFIG;
 
     public EBE() {
         final IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-        bus.addListener(this::commonSetup);
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> bus.addListener(this::clientSetup));
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    private void commonSetup(FMLCommonSetupEvent event) {
-        if (CONFIG == null) {
-            CONFIG = EBEConfig.loadOrCreate();
-        }
-
-        if (CONFIG != null && !EmbeddiumIntegration.hasEmbeddium()) {
+    private void clientSetup(FMLClientSetupEvent event) {
+        if (CONFIG != null && !EMBEDDIUM.isLoaded()) {
             event.enqueueWork(() -> CONFIG.save());
         }
-    }
 
-    private void clientSetup(FMLClientSetupEvent event) {
+        SinytraIntegration.checkSinytra();
+        
         event.enqueueWork(() -> {
             CommonSetup.setupResourceProviders();
             ItemProperties.registerGeneric(EBEOtherUtils.id("is_christmas"), (stack, world, entity, seed) -> EBEOtherUtils.isChristmas() ? 1 : 0);
