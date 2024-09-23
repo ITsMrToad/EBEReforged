@@ -1,6 +1,7 @@
 package foundationgames.enhancedblockentities.client.model.dynamic;
 
 import foundationgames.enhancedblockentities.client.model.ModelSelector;
+import foundationgames.enhancedblockentities.integration.SinytraIntegration;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.BakedModel;
@@ -47,7 +48,12 @@ public class DynamicUnbakedModel implements UnbakedModel {
         for (int i = 0; i < this.models.length; i++) {
             baked[i] = baker.getModel(this.models[i]).bake(baker, textureGetter, rotationContainer, this.models[i]);
         }
-        return new DynamicBakedModel(baked, this.selector, this.effects);
+      
+        if (SinytraIntegration.SINYTRA.isLoaded()) {
+            return new SinytraIntegration.SinytraBakedModel(baked, this.selector, this.effects);
+        } else {
+            return new DynamicBakedModel(baked, this.selector, this.effects);
+        }
     }
 
 }
