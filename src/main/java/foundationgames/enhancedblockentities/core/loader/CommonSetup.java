@@ -152,81 +152,81 @@ public class CommonSetup {
     }
 
     public static void setupResourceProviders() {
-        ModelLoadingPluginManager.registerPlugin(new DynamicModelHandler(new ResourceLocation("builtin", "chest_center"), () -> new DynamicUnbakedModel(new ResourceLocation[]{
+        SinytraIntegration.registerPlugin(new ResourceLocation("builtin", "chest_center"), () -> new DynamicUnbakedModel(new ResourceLocation[]{
                 ModelIdentifiers.CHEST_CENTER,
                 ModelIdentifiers.CHEST_CENTER_TRUNK,
                 ModelIdentifiers.CHRISTMAS_CHEST_CENTER,
                 ModelIdentifiers.CHRISTMAS_CHEST_CENTER_TRUNK
-        }, ModelSelector.CHEST_WITH_CHRISTMAS, DynamicModelEffects.CHEST)));
+        }, ModelSelector.CHEST_WITH_CHRISTMAS, DynamicModelEffects.CHEST));
 
-        ModelLoadingPluginManager.registerPlugin(new DynamicModelHandler(new ResourceLocation("builtin", "chest_left"), () -> new DynamicUnbakedModel(new ResourceLocation[]{
+        SinytraIntegration.registerPlugin(new ResourceLocation("builtin", "chest_left"), () -> new DynamicUnbakedModel(new ResourceLocation[]{
                 ModelIdentifiers.CHEST_LEFT,
                 ModelIdentifiers.CHEST_LEFT_TRUNK, ModelIdentifiers.CHRISTMAS_CHEST_LEFT,
                 ModelIdentifiers.CHRISTMAS_CHEST_LEFT_TRUNK
-        }, ModelSelector.CHEST_WITH_CHRISTMAS, DynamicModelEffects.CHEST)));
+        }, ModelSelector.CHEST_WITH_CHRISTMAS, DynamicModelEffects.CHEST));
 
-        ModelLoadingPluginManager.registerPlugin(new DynamicModelHandler(new ResourceLocation("builtin", "chest_right"), () -> new DynamicUnbakedModel(new ResourceLocation[]{
+        SinytraIntegration.registerPlugin(new ResourceLocation("builtin", "chest_right"), () -> new DynamicUnbakedModel(new ResourceLocation[]{
                 ModelIdentifiers.CHEST_RIGHT,
                 ModelIdentifiers.CHEST_RIGHT_TRUNK,
                 ModelIdentifiers.CHRISTMAS_CHEST_RIGHT,
                 ModelIdentifiers.CHRISTMAS_CHEST_RIGHT_TRUNK
         }, ModelSelector.CHEST_WITH_CHRISTMAS, DynamicModelEffects.CHEST)));
 
-        ModelLoadingPluginManager.registerPlugin(new DynamicModelHandler(new ResourceLocation("builtin", "trapped_chest_center"), () -> new DynamicUnbakedModel(new ResourceLocation[]{
+        SinytraIntegration.registerPlugin(new DynamicModelHandler(new ResourceLocation("builtin", "trapped_chest_center"), () -> new DynamicUnbakedModel(new ResourceLocation[]{
                 ModelIdentifiers.TRAPPED_CHEST_CENTER,
                 ModelIdentifiers.TRAPPED_CHEST_CENTER_TRUNK,
                 ModelIdentifiers.CHRISTMAS_CHEST_CENTER,
                 ModelIdentifiers.CHRISTMAS_CHEST_CENTER_TRUNK
-        }, ModelSelector.CHEST_WITH_CHRISTMAS, DynamicModelEffects.CHEST)));
+        }, ModelSelector.CHEST_WITH_CHRISTMAS, DynamicModelEffects.CHEST));
 
-        ModelLoadingPluginManager.registerPlugin(new DynamicModelHandler(new ResourceLocation("builtin", "trapped_chest_left"), () -> new DynamicUnbakedModel(new ResourceLocation[]{
+        SinytraIntegration.registerPlugin(new DynamicModelHandler(new ResourceLocation("builtin", "trapped_chest_left"), () -> new DynamicUnbakedModel(new ResourceLocation[]{
                 ModelIdentifiers.TRAPPED_CHEST_LEFT,
                 ModelIdentifiers.TRAPPED_CHEST_LEFT_TRUNK,
                 ModelIdentifiers.CHRISTMAS_CHEST_LEFT,
                 ModelIdentifiers.CHRISTMAS_CHEST_LEFT_TRUNK
-        }, ModelSelector.CHEST_WITH_CHRISTMAS, DynamicModelEffects.CHEST)));
+        }, ModelSelector.CHEST_WITH_CHRISTMAS, DynamicModelEffects.CHEST));
 
-        ModelLoadingPluginManager.registerPlugin(new DynamicModelHandler(new ResourceLocation("builtin", "trapped_chest_right"), () -> new DynamicUnbakedModel(new ResourceLocation[]{
+        SinytraIntegration.registerPlugin(new DynamicModelHandler(new ResourceLocation("builtin", "trapped_chest_right"), () -> new DynamicUnbakedModel(new ResourceLocation[]{
                 ModelIdentifiers.TRAPPED_CHEST_RIGHT,
                 ModelIdentifiers.TRAPPED_CHEST_RIGHT_TRUNK,
                 ModelIdentifiers.CHRISTMAS_CHEST_RIGHT,
                 ModelIdentifiers.CHRISTMAS_CHEST_RIGHT_TRUNK
-        }, ModelSelector.CHEST_WITH_CHRISTMAS, DynamicModelEffects.CHEST)));
+        }, ModelSelector.CHEST_WITH_CHRISTMAS, DynamicModelEffects.CHEST));
 
-        ModelLoadingPluginManager.registerPlugin(new DynamicModelHandler(new ResourceLocation("builtin", "ender_chest_center"), () -> new DynamicUnbakedModel(new ResourceLocation[]{
+        SinytraIntegration.registerPlugin(new ResourceLocation("builtin", "ender_chest_center"), () -> new DynamicUnbakedModel(new ResourceLocation[]{
                 ModelIdentifiers.ENDER_CHEST_CENTER,
                 ModelIdentifiers.ENDER_CHEST_CENTER_TRUNK
-        }, ModelSelector.STATE_HOLDER_SELECTOR, DynamicModelEffects.CHEST)));
+        }, ModelSelector.STATE_HOLDER_SELECTOR, DynamicModelEffects.CHEST));
 
-        ModelLoadingPluginManager.registerPlugin(new DynamicModelHandler(new ResourceLocation("builtin", "bell_between_walls"), () -> new DynamicUnbakedModel(new ResourceLocation[]{
+        SinytraIntegration.registerPlugin(new ResourceLocation("builtin", "bell_between_walls"), () -> new DynamicUnbakedModel(new ResourceLocation[]{
                 ModelIdentifiers.BELL_BETWEEN_WALLS_WITH_BELL,
                 ModelIdentifiers.BELL_BETWEEN_WALLS
-        }, ModelSelector.BELL, DynamicModelEffects.BELL)));
+        }, ModelSelector.BELL, DynamicModelEffects.BELL));
 
-        ModelLoadingPluginManager.registerPlugin(new DynamicModelHandler(new ResourceLocation("builtin", "bell_ceiling"), () -> new DynamicUnbakedModel(new ResourceLocation[]{
+        SinytraIntegration.registerPlugin(new ResourceLocation("builtin", "bell_ceiling"), () -> new DynamicUnbakedModel(new ResourceLocation[]{
                 ModelIdentifiers.BELL_CEILING_WITH_BELL,
                 ModelIdentifiers.BELL_CEILING
-        }, ModelSelector.BELL, DynamicModelEffects.BELL)));
+        }, ModelSelector.BELL, DynamicModelEffects.BELL));
 
-        ModelLoadingPluginManager.registerPlugin(new DynamicModelHandler(new ResourceLocation("builtin", "bell_floor"), () -> new DynamicUnbakedModel(new ResourceLocation[]{
+        SinytraIntegration.registerPlugin(new ResourceLocation("builtin", "bell_floor"), () -> new DynamicUnbakedModel(new ResourceLocation[]{
                 ModelIdentifiers.BELL_FLOOR_WITH_BELL,
                 ModelIdentifiers.BELL_FLOOR
-        }, ModelSelector.BELL, DynamicModelEffects.BELL)));
+        }, ModelSelector.BELL, DynamicModelEffects.BELL));
 
-        ModelLoadingPluginManager.registerPlugin(new DynamicModelHandler(new ResourceLocation("builtin", "bell_wall"), () -> new DynamicUnbakedModel(new ResourceLocation[]{
+        SinytraIntegration.registerPlugin(new ResourceLocation("builtin", "bell_wall"), () -> new DynamicUnbakedModel(new ResourceLocation[]{
                 ModelIdentifiers.BELL_WALL_WITH_BELL,
                 ModelIdentifiers.BELL_WALL
-        }, ModelSelector.BELL, DynamicModelEffects.BELL)));
+        }, ModelSelector.BELL, DynamicModelEffects.BELL));
 
         for (DyeColor color : EBEOtherUtils.DEFAULTED_DYE_COLORS) {
-            ModelLoadingPluginManager.registerPlugin(new DynamicModelHandler(new ResourceLocation("builtin", color != null ? color.getName() + "_shulker_box" : "shulker_box"), () -> new DynamicUnbakedModel(new ResourceLocation[]{
+            SinytraIntegration.registerPlugin(new ResourceLocation("builtin", color != null ? color.getName() + "_shulker_box" : "shulker_box"), () -> new DynamicUnbakedModel(new ResourceLocation[]{
                     ModelIdentifiers.SHULKER_BOXES.get(color),
                     ModelIdentifiers.SHULKER_BOX_BOTTOMS.get(color)
-            }, ModelSelector.SHULKER_BOX, DynamicModelEffects.SHULKER_BOX)));
+            }, ModelSelector.SHULKER_BOX, DynamicModelEffects.SHULKER_BOX));
         }
 
         DecoratedPotModelSelector decoratedPotSelector = new DecoratedPotModelSelector();
-        ModelLoadingPluginManager.registerPlugin(new DynamicModelHandler(new ResourceLocation("builtin", "decorated_pot"), () -> new DynamicUnbakedModel(decoratedPotSelector.createModelIDs(), decoratedPotSelector, DynamicModelEffects.DECORATED_POT)));
+        SinytraIntegration.registerPlugin(new ResourceLocation("builtin", "decorated_pot"), () -> new DynamicUnbakedModel(decoratedPotSelector.createModelIDs(), decoratedPotSelector, DynamicModelEffects.DECORATED_POT));
     }
 
     public static void setupChests() {
