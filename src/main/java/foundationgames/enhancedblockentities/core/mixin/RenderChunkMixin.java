@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.Mixin;
 
 import org.jetbrains.annotations.Nullable;
 
-@Mixin(ChunkRenderDispatcher.RenderChunk.class)
+@Mixin(SectionRenderDispatcher.RenderSection.class)
 public  abstract class RenderChunkMixin implements ChunkRenderTaskAccess {
 
     @Nullable private Runnable enhanced_bes$taskAfterRebuild = null;
