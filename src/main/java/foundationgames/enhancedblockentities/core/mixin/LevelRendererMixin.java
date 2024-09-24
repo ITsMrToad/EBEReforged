@@ -2,9 +2,8 @@ package foundationgames.enhancedblockentities.core.mixin;
 
 import foundationgames.enhancedblockentities.common.util.ChunkRenderTaskAccess;
 import foundationgames.enhancedblockentities.common.util.EBEOtherUtils;
-import net.minecraft.client.Camera;
 import net.minecraft.client.renderer.LevelRenderer;
-import net.minecraft.client.renderer.chunk.ChunkRenderDispatcher;
+import net.minecraft.client.renderer.chunk.SectionRenderDispatcher;
 import net.minecraft.core.SectionPos;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -17,8 +16,8 @@ import org.jetbrains.annotations.Nullable;
 @Mixin(LevelRenderer.class)
 public abstract class LevelRendererMixin {
 
-    @ModifyVariable(method = "compileChunks", at = @At(value = "INVOKE", target = "Lnet/minecraft/core/SectionPos;of(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/core/SectionPos;", shift = At.Shift.AFTER), index = 8)
-    public ChunkRenderDispatcher.RenderChunk addPostRebuildTask(ChunkRenderDispatcher.RenderChunk value) {
+    @ModifyVariable(method = "compileSections", at = @At(value = "INVOKE", target = "Lnet/minecraft/core/SectionPos;of(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/core/SectionPos;", shift = At.Shift.AFTER), index = 8)
+    public SectionRenderDispatcher.RenderSection addPostRebuildTask(SectionRenderDispatcher.RenderSection value) {
         if (!EBEOtherUtils.CHUNK_UPDATE_TASKS.isEmpty() ) {
             SectionPos pos = SectionPos.of(value.getOrigin());
 
@@ -30,8 +29,8 @@ public abstract class LevelRendererMixin {
         return value;
     }
     
-    @Inject(method = "addRecentlyCompiledChunk", at = @At("HEAD"))
-    private void runPostRebuildTask(ChunkRenderDispatcher.RenderChunk chunk, CallbackInfo ci) {
+    @Inject(method = "addRecentlyCompiledSection", at = @At("HEAD"))
+    private void runPostRebuildTask(SectionRenderDispatcher.RenderSection chunk, CallbackInfo ci) {
         ((ChunkRenderTaskAccess) chunk).runAfterRebuildTask();
     }
 
