@@ -56,6 +56,11 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 dependencies {
     annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    implementation('net.sf.jopt-simple:jopt-simple:' + jopt) {
+        version {
+            strictly jopt
+        }
+    }
 }
 
 repositories {
