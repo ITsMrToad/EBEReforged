@@ -21,15 +21,6 @@ public class MFRAPIMixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        if (EBE.CONFIG == null) { //Now config creates here...
-            EBE.CONFIG = EBEConfig.loadOrCreate();
-        }
-
-        //Disabling embedded FFAPI
-        if (mixinClassName.startsWith("foundationgames.enhancedblockentities.core.mixin.mfrapi.") && EBE.CONFIG.forceMFAPICompat) {
-            EBE.LOGGER.debug(EBE.FFAPI, "Sinytra detected. Force disabling MFRAPI.");
-            return false;
-        }
         return true;
     }
 
