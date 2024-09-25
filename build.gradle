@@ -14,11 +14,9 @@ mixin {
     add sourceSets.main, "ebe.refmap.json"
 }
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
-println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 minecraft {
-
     mappings channel: mapping_channel, version: mapping_version
     copyIdeResources = true
 
@@ -58,17 +56,6 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 dependencies {
     annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-    
-    implementation fg.deobf("maven.modrinth:embeddium:${embeddium}")
-    implementation fg.deobf("maven.modrinth:toadlib:${toadlib}")
-
-    implementation fg.deobf("dev.su5ed.sinytra.fabric-api:fabric-api-base:${fabric_base}")
-    implementation fg.deobf("dev.su5ed.sinytra.fabric-api:fabric-model-loading-api-v1:${fabric_model_loading}")
-    implementation fg.deobf("dev.su5ed.sinytra.fabric-api:fabric-renderer-api-v1:${fabric_rendering_api}")
-    implementation fg.deobf("dev.su5ed.sinytra.fabric-api:fabric-renderer-indigo:${fabric_indigo}")
-    implementation fg.deobf("dev.su5ed.sinytra.fabric-api:fabric-rendering-data-attachment-v1:${fabric_rda}")
-    implementation fg.deobf("dev.su5ed.sinytra.fabric-api:fabric-block-view-api-v2:${fabric_block_view}")
-    
 }
 
 repositories {
@@ -83,10 +70,6 @@ repositories {
         filter {
             includeGroup "maven.modrinth"
         }
-    }
-    maven {
-        name = 'Sinytra'
-        url = "https://maven.su5ed.dev/releases"
     }
 }
 
