@@ -3,7 +3,7 @@
   "package": "foundationgames.enhancedblockentities.core.mixin",
   "refmap": "ebe.refmap.json",
   "plugin" : "foundationgames.enhancedblockentities.core.mixin.plugin.MFRAPIMixinPlugin",
-  "compatibilityLevel": "JAVA_17",
+  "compatibilityLevel": "JAVA_21",
   "mixins": [
   ],
   "injectors": {
@@ -22,10 +22,6 @@
     "MinecraftMixin",
     "RenderChunkMixin",
     "SignEditScreenMixin",
-   
-    "embeddium.EmbeddiumVideoOptionsScreenMixin",
-    "embeddium.RenderSectionManagerMixin",
-    "embeddium.RenderSectionMixin",
  
     "accessor.SignRendererInvoker",
     
