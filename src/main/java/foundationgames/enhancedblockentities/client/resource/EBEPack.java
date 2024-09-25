@@ -12,9 +12,11 @@ import net.minecraft.client.renderer.texture.atlas.SpriteSource;
 import net.minecraft.client.renderer.texture.atlas.sources.DirectoryLister;
 import net.minecraft.client.renderer.texture.atlas.sources.SingleFile;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.PackLocationInfo;
 import net.minecraft.server.packs.PackResources;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.metadata.MetadataSectionSerializer;
+import net.minecraft.server.packs.repository.PackSource;
 import net.minecraft.server.packs.resources.IoSupplier;
 
 import org.jetbrains.annotations.Nullable;
@@ -45,10 +47,13 @@ public class EBEPack implements PackResources {
     private final ResourceLocation id;
     private final JsonObject packMeta;
 
+    private final PackLocationInfo info;
+    
     public EBEPack(ResourceLocation id, TemplateLoader templates) {
         this.templates = templates;
         this.id = id;
 
+        this.info = new PackLocationInfo(id.toString(), Component.literal(id.toString()), PackSource.BUILT_IN, Optional.empty());
         this.packMeta = new JsonObject();
         this.packMeta.addProperty("pack_format", SharedConstants.getCurrentVersion().getPackVersion(PackType.CLIENT_RESOURCES));
         this.packMeta.addProperty("description", "Enhanced Block Entities Resources");
@@ -134,6 +139,11 @@ public class EBEPack implements PackResources {
         return null;
     }
 
+    @Override
+    public PackLocationInfo location() {
+        return this.info;
+    }
+    
     @Override
     public void close() {}
 
