@@ -3,7 +3,6 @@ package foundationgames.enhancedblockentities.core;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.mojang.datafixers.util.Pair;
-import com.mr_toad.lib.api.integration.Integration;
 import foundationgames.enhancedblockentities.client.model.ModelIdentifiers;
 import foundationgames.enhancedblockentities.client.renderer.BlockEntityRendererCondition;
 import foundationgames.enhancedblockentities.client.renderer.BlockEntityRendererOverride;
@@ -49,7 +48,6 @@ public class EBE {
     public static final Logger LOGGER = LoggerFactory.getLogger("EBE");
     public static final Marker FFAPI = MarkerFactory.getMarker("FFAPI");
    
-    public static final Integration EMBEDDIUM = () -> "embeddium";
     public static final TemplateLoader TEMPLATE_LOADER = new TemplateLoader();
 
     @Nullable public static EBEConfig CONFIG;
@@ -61,11 +59,13 @@ public class EBE {
     }
 
     private void clientSetup(FMLClientSetupEvent event) {
-        if (CONFIG != null && !EMBEDDIUM.isLoaded()) {
+        if (EBE.CONFIG == null) {
+            EBE.CONFIG = EBEConfig.loadOrCreate();
+        }
+        
+        if (CONFIG != null) {
             event.enqueueWork(() -> CONFIG.save());
         }
-
-        SinytraIntegration.checkSinytra();
         
         event.enqueueWork(() -> {
             CommonSetup.setupResourceProviders();
