@@ -54,7 +54,7 @@ public class EBEOtherUtils {
         VertexConsumer vertices = vertexConsumers.getBuffer(ItemBlockRenderTypes.getRenderType(state, false));
         for (int i = 0; i <= 6; i++) {
             for(BakedQuad q : model.getQuads(null, FACES[i], DUMMY)) {
-                vertices.putBulkData(matrices.last(), q, 1, 1, 1, light, overlay);
+                vertices.putBulkData(matrices.last(), q, 1, 1, 1, 1, light, overlay);
             }
         }
     }
